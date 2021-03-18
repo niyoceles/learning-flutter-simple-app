@@ -32,3 +32,35 @@ class RandomWordsState extends State<RandomWords> {
         appBar: AppBar(title: Text('Dart application')), body: _buildList());
   }
 }
+
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState(){
+    return _MyAppState();
+  }
+
+}
+
+class _MyAppState extends State<MyApp>{
+  @override
+ Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Hellow'),),
+        body: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.all(10.0),
+              child: RaisedButton(
+                  onPressed: (){},
+                  child: Text('Add Product'),
+                  ),
+            ),
+            Card(child: Column(children:<Widget>[
+          Image.asset('assets/images/food1.jpg'),
+          Text('samle image')
+        ],),)],
+      ),)
+    );
+  }
+}
