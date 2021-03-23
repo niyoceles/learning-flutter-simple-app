@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:myapplication/constants/constants.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:myapplication/pages/signup_page.dart';
 import 'package:myapplication/pages/todos_page.dart';
 // import 'package:myapplication/pages/home_page.dart';
 
 import 'home_page_with_fb.dart';
 
-class LoginPage extends StatefulWidget {
-  static const String routeName = "/login";
+class SignupPage extends StatefulWidget {
+  static const String routeName = "/signup";
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   final formKey = GlobalKey<FormState>();
 
   final _emailController = TextEditingController();
@@ -22,9 +21,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(title: Text('Login page')),
+        appBar: AppBar(title: Text('Signup page')),
         body: Stack(
           fit: StackFit.expand,
           children: <Widget>[
@@ -47,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                             children: <Widget>[
                               SizedBox(height: size.height * 0.03),
                               SvgPicture.asset(
-                                "assets/icons/login.svg",
+                                "assets/icons/Signup.svg",
                                 height: size.height * 0.35,
                               ),
                               SizedBox(height: size.height * 0.03),
@@ -81,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Navigator.pushReplacementNamed(
                                         context, HomePageFB.routeName);
                                   },
-                                  child: Text("Login"),
+                                  child: Text("Signup"),
                                   color: Colors.blue,
                                   textColor: Colors.white,
                                 ),
@@ -98,24 +97,6 @@ class _LoginPageState extends State<LoginPage> {
                                         context, TodoScreen.routeName);
                                   },
                                   child: Text("TODO LIST"),
-                                  color: Colors.blue,
-                                  textColor: Colors.white,
-                                ),
-                              ),
-                              SizedBox(height: 40),
-                              Center(
-                                // ignore: deprecated_member_use
-                                child: RaisedButton(
-                                  onPressed: () {
-                                    // Navigator.push(
-                                    //   context, MaterialPageRoute(builder: (context)=>HomeScreen())
-                                    // );
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (_) => SignupPage()));
-                                    ;
-                                  },
-                                  child: Text("Go to Signup page"),
                                   color: Colors.blue,
                                   textColor: Colors.white,
                                 ),

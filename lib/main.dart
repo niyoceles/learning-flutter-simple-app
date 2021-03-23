@@ -4,6 +4,7 @@ import 'package:myapplication/constants/constants.dart';
 import 'package:myapplication/pages/home_page_with_fb.dart';
 // import 'package:myapplication/pages/home_page.dart';
 import 'package:myapplication/pages/login_page.dart';
+import 'package:myapplication/pages/todos_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future main() async {
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         routes:{
           LoginPage.routeName: (content)=> LoginPage(),
           HomePageFB.routeName: (content)=> HomePageFB(),
+          TodoScreen.routeName: (content)=> TodoScreen(),
         });
   }
 }
