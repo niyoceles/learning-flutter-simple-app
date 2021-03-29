@@ -3,9 +3,11 @@ import 'package:myapplication/constants/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:myapplication/pages/signup_page.dart';
 import 'package:myapplication/pages/todos_page.dart';
-// import 'package:myapplication/pages/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'home_page_with_fb.dart';
+
+// import 'home_page_with_fb.dart';
 
 class LoginPage extends StatefulWidget {
   static const String routeName = "/login";
@@ -19,6 +21,27 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
 
   final _passwordController = TextEditingController();
+
+  bool _isLoading = false;
+
+  signIn(String email, password) async {
+    // var jsonData = null;
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    Map data = {'email': email, 'password': password};
+    // var response = await http.post("url", body: data);
+    // if (response.statusCode == 200) {
+    //   jsonData = json.decode(response.body);
+      setState(() {
+        sharedPreferences.setString("email", email);
+        // Navigator.of(context)
+        //     .pushAndRemoveUntil(MaterialPage(child: child), (route) => false);
+             Navigator.pushReplacementNamed(
+                                        context, HomePageFB.routeName);
+      });
+    // }
+
+    print(data);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,12 +97,16 @@ class _LoginPageState extends State<LoginPage> {
                                 // ignore: deprecated_member_use
                                 child: RaisedButton(
                                   onPressed: () {
+                                    setState(() {
+                                      _isLoading:
+                                      true;
+                                    });
+                                    signIn(_emailController.text,
+                                        _passwordController.text);
                                     Constants.prefs.setBool("loggedIn", true);
                                     // Navigator.push(
                                     //   context, MaterialPageRoute(builder: (context)=>HomeScreen())
                                     // );
-                                    Navigator.pushReplacementNamed(
-                                        context, HomePageFB.routeName);
                                   },
                                   child: Text("Login"),
                                   color: Colors.blue,
