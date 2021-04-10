@@ -5,7 +5,8 @@ import 'package:myapplication/pages/signup_page.dart';
 import 'package:myapplication/pages/todos_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'home_page_with_fb.dart';
+import '../categories_screen.dart';
+// import 'home_page_with_fb.dart';
 
 // import 'home_page_with_fb.dart';
 
@@ -36,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
         // Navigator.of(context)
         //     .pushAndRemoveUntil(MaterialPage(child: child), (route) => false);
              Navigator.pushReplacementNamed(
-                                        context, HomePageFB.routeName);
+                                        context, CategoriesScreen.routeName);
       });
     // }
 
