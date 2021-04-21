@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapplication/screens/categories_screen.dart';
-import 'package:myapplication/screens/favorites_screen.dart';
-import 'package:myapplication/screens/main_drawer.dart';
+import './categories_screen.dart';
+import './favorites_screen.dart';
+import './main_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   @override

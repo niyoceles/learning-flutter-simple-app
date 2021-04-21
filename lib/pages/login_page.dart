@@ -99,8 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: RaisedButton(
                                   onPressed: () {
                                     setState(() {
-                                      _isLoading:
-                                      true;
+                                      _isLoading: true;
                                     });
                                     signIn(_emailController.text,
                                         _passwordController.text);

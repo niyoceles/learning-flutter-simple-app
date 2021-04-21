@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import '../widgets/meal_item.dart';
 import '../dummy_data.dart';
 
-class CategoryMealsScreen extends StatelessWidget {
+class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
-  // final String categoryId;
-  // final String categoryTitle;
 
-  // CategoryMealsScreen(this.categoryId, this.categoryTitle);
+  @override
+  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
+}
 
+class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   @override
   Widget build(BuildContext context) {
     // getting the data from route Arguments
@@ -33,7 +34,8 @@ class CategoryMealsScreen extends StatelessWidget {
             imageUrl: categoryMeals[index].imageUrl,
             duration: categoryMeals[index].duration,
             affordability: categoryMeals[index].affordability,
-            complexity: categoryMeals[index].complexity,
+            complexity: categoryMeals[index].complexity, 
+            removeItem: null,
           );
         },
         itemCount: categoryMeals.length,
