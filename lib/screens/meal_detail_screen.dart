@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import '../models/meal.dart';
 import '../dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = "/meal-detail";
+  final Function toggleFavorite;
+  final Function isMealFavorite;
+
+  MealDetailScreen(this.toggleFavorite, this.isMealFavorite);
 
 // Build own widget
   Widget buildSectionTitle(BuildContext context, String text) {
@@ -65,19 +70,25 @@ class MealDetailScreen extends StatelessWidget {
               ListView.builder(
                   itemCount: selectedMeal.steps.length,
                   itemBuilder: (ctx, index) => Column(
-                    children: [
-                      ListTile(
+                        children: [
+                          ListTile(
                             leading: CircleAvatar(
-                              child: Text('# ${(index +1)}'),
+                              child: Text('# ${(index + 1)}'),
                             ),
                             title: Text(selectedMeal.steps[index]),
                           ),
                           Divider(),
-                    ],
-                  )),
+                        ],
+                      )),
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          isMealFavorite(mealId) ? Icons.star : Icons.star_border,
+        ),
+        onPressed:() =>toggleFavorite(mealId),
       ),
     );
   }
